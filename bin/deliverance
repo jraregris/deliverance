@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.push File.join(File.dirname(__FILE__), "/../lib")
+require 'deliverance'
+require 'textui'
+
+game = Deliverance::Game.new(Deliverance::TextUI.new(STDOUT))
+c = STDIN.getc
+game.start
