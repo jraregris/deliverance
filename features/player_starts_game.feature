@@ -1,7 +1,4 @@
-Feature: Player starts game
-  As a player
-  I want to start a game
-  So that I can start playing
+Feature: Start game
   Scenario: start game
     Given I am not yet playing
     When I start a new game
