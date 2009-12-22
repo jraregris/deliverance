@@ -1,6 +1,18 @@
 Given /^I am not yet playing$/ do
 end
 
+Given /^I start a game in debug-mode$/ do
+  pending
+  @ui = Deliverance::TextUI.new(StringIO.new)
+  @game = Deliverance::Game.new(@ui)
+  @game.empty
+  @game.start
+end
+
+When /^I pedal north$/ do
+  @ui.north
+end
+
 When /^I start a new game$/ do
   @ui = Deliverance::TextUI.new(StringIO.new)
   @game = Deliverance::Game.new(@ui)
@@ -16,4 +28,12 @@ end
 
 Then /^I should have a speed of (\d+) spt$/ do |speed|
   @ui.speed.should equal(speed.to_i)
+end
+
+Then /^my relative position should be (.*)$/ do |pos|
+  pending
+end
+
+Then /^the map should be empty$/ do
+  pending
 end
