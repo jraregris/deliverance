@@ -4,6 +4,10 @@ module Deliverance
       @io = io
     end
 
+    def set_debug(debug)
+      @io.puts "Debug: " + debug.to_s
+    end
+
     def set_papers(i)
       @io.puts "Papers: " + i.to_s
     end

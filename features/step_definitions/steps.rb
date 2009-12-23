@@ -2,14 +2,14 @@ Given /^I am not yet playing$/ do
 end
 
 Given /^I start a game in debug-mode$/ do
-  pending
   @ui = Deliverance::TextUI.new(StringIO.new)
   @game = Deliverance::Game.new(@ui)
-  @game.empty
+  @game.debug
   @game.start
 end
 
 When /^I pedal north$/ do
+
   @ui.north
 end
 
@@ -35,5 +35,5 @@ Then /^my relative position should be (.*)$/ do |pos|
 end
 
 Then /^the map should be empty$/ do
-  pending
+  @game.empty?.should equal(true)
 end
