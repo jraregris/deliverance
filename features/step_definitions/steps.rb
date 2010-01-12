@@ -9,7 +9,6 @@ Given /^I start a game in debug-mode$/ do
 end
 
 When /^I pedal north$/ do
-
   @ui.north
 end
 
