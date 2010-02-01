@@ -10,5 +10,21 @@ module Deliverance
         game.start
       end
     end
+
+    context "being given an :empty" do
+      it "should start in empty mode" do
+        ui = mock("ui").as_null_object
+        game = Game.new(ui, :empty)
+        game.empty?.should be_true
+      end
+    end
+
+    context "not being given an :empty" do
+      it "should start in normal mode" do
+        ui = mock("ui").as_null_object
+        game = Game.new(ui)
+        game.empty?.should be_false
+      end
+    end
   end
 end

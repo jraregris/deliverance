@@ -19,7 +19,8 @@ Then /^I should have a speed of (\d+) spt$/ do |speed|
 end
 
 Given /^I have started an empty game$/ do
-  pending
+  @ui = Deliverance::TextUI.new(StringIO.new)
+  @game = Deliverance::Game.new(@ui, :empty)
 end
 
 When /^I pedal north$/ do
