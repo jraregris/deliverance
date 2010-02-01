@@ -17,3 +17,15 @@ end
 Then /^I should have a speed of (\d+) spt$/ do |speed|
   @ui.speed.should equal(speed.to_i)
 end
+
+Given /^I have started an empty game$/ do
+  pending
+end
+
+When /^I pedal north$/ do
+  pending
+end
+
+Then /^my relative position is (\d+),(\d+)$/ do |x,y|
+  pending
+end
