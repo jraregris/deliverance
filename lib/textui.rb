@@ -19,5 +19,14 @@ module Deliverance
     def speed
       0
     end
+
+    def game(g)
+      @game = g
+    end
+
+    def pedal_north
+      @game.pedal_north
+    end
+
   end
 end

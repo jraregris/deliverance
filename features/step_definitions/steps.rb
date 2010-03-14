@@ -24,7 +24,7 @@ Given /^I have started an empty game$/ do
 end
 
 When /^I pedal north$/ do
-  pending
+  @ui.pedal_north
 end
 
 Then /^my relative position is (\d+),(\d+)$/ do |x,y|
