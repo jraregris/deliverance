@@ -1,3 +1,5 @@
+require 'hero'
+
 module Deliverance
   class Game
     def initialize(ui, mode=:normal)
@@ -11,8 +13,16 @@ module Deliverance
       @empty
     end
 
+    def hero
+      @hero ||= Hero.new
+    end
+
     def start
       @ui.set_papers(10)
+    end
+
+    def pedal_north
+      @hero.set_y(hero.y + 1)
     end
   end
 end

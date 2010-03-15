@@ -12,9 +12,7 @@ module Deliverance
 
       it "should set itself as the game of its UI" do
         ui = mock("ui").as_null_object
-
         ui.should_receive(:set_game)
-
         game = Game.new(ui)
       end
     end
@@ -32,6 +30,19 @@ module Deliverance
         ui = mock("ui").as_null_object
         game = Game.new(ui)
         game.empty?.should be_false
+      end
+    end
+
+    context "being told to pedal north" do
+      it "should move the hero one square north" do
+        game = Game.new(mock("ui").as_null_object)
+        game.start
+        
+        y = game.hero.y
+        
+        game.pedal_north
+
+        game.hero.y.should be(1)
       end
     end
   end
