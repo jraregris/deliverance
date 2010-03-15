@@ -9,6 +9,14 @@ module Deliverance
         ui.should_receive(:set_papers).with(10)
         game.start
       end
+
+      it "should set itself as the game of its UI" do
+        ui = mock("ui").as_null_object
+
+        ui.should_receive(:set_game)
+
+        game = Game.new(ui)
+      end
     end
 
     context "being given an :empty" do

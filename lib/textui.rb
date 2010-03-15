@@ -20,13 +20,16 @@ module Deliverance
       0
     end
 
-    def game(g)
+    def set_game(g)
       @game = g
+    end
+
+    def game
+      @game
     end
 
     def pedal_north
       @game.pedal_north
     end
-
   end
 end

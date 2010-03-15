@@ -16,10 +16,20 @@ module Deliverance
         io = mock("io").as_null_object
         ui = TextUI.new(io)
         game = mock("game").as_null_object
-        ui.game(game)
+        ui.set_game(game)
 
         game.should_receive(:pedal_north)
         ui.pedal_north
+      end
+    end
+
+    context "setting game" do
+      it "should set the game" do
+        ui = TextUI.new(mock("io").as_null_object)
+        game = mock("game").as_null_object
+        ui.set_game(game)
+
+        ui.game().should be(game)
       end
     end
   end
