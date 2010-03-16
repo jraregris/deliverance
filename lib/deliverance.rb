@@ -27,6 +27,7 @@ module Deliverance
 
     def debug
       @ui.set_debug(true)
+      @empty = true
     end
 
   end
