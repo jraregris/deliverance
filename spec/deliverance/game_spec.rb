@@ -34,16 +34,24 @@ module Deliverance
     end
 
     context "being told to pedal north" do
-      it "should move the hero one square north" do
+      it "should move the hero 1 square north" do
         game = Game.new(mock("ui").as_null_object)
         game.start
         
-        y = game.hero.y
-        
+        game.hero.y.should == 0
+        game.hero.speed.should == 0
+
+        game.pedal_north
+      
+        game.hero.y.should == 1
+        game.hero.speed.should == 1
+
         game.pedal_north
 
-        game.hero.y.should be(1)
+        game.hero.y.should == 3
+        game.hero.speed.should == 2
       end
+      
     end
 
     context "setting game to debug-debug" do

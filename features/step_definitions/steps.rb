@@ -22,7 +22,7 @@ Then /^I should have (\d+) points$/ do |points|
 end
 
 Then /^I should have a speed of (\d+) spt$/ do |speed|
-  @ui.speed.should equal(speed.to_i)
+  @game.hero.speed.should == speed.to_i
 end
 
 Given /^I have started an empty game$/ do
@@ -35,7 +35,8 @@ When /^I pedal north$/ do
 end
 
 Then /^my relative position is (\d+),(\d+)$/ do |x,y|
-  pending
+  @game.hero.x.should == x.to_i
+  @game.hero.y.should == y.to_i
 end
 
 Then /^the map should be empty$/ do
