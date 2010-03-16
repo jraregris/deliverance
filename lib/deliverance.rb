@@ -1,6 +1,9 @@
 require 'hero'
 
 module Deliverance
+
+  # The main Game class that runs everything.
+  # Author:: Oddmund Strømme
   class Game
     def initialize(ui, mode=:normal)
       @ui = ui
