@@ -1,4 +1,6 @@
 module Deliverance
+
+  # TextUI class intended for debugging. Not to be confused with the upcoming CursesUI.
   class TextUI
     def initialize(io)
       @io = io
