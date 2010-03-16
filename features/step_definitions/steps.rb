@@ -1,6 +1,13 @@
 Given /^I am not yet playing$/ do
 end
 
+Given /^I start a game in debug-mode$/ do
+  @ui = Deliverance::TextUI.new(StringIO.new)
+  @game = Deliverance::Game.new(@ui)
+  @game.debug
+  @game.start
+end
+
 When /^I start a new game$/ do
   @ui = Deliverance::TextUI.new(StringIO.new)
   @game = Deliverance::Game.new(@ui)
@@ -29,4 +36,8 @@ end
 
 Then /^my relative position is (\d+),(\d+)$/ do |x,y|
   pending
+end
+
+Then /^the map should be empty$/ do
+  @game.empty?.should equal(true)
 end

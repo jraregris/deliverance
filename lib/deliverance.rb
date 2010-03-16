@@ -24,5 +24,10 @@ module Deliverance
     def pedal_north
       hero.set_y(hero.y + 1)
     end
+
+    def debug
+      @ui.set_debug(true)
+    end
+
   end
 end
