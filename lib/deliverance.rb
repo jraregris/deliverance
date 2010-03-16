@@ -25,8 +25,10 @@ module Deliverance
     end
 
     def pedal_north
-      hero.set_y(hero.y + hero.speed + 1)
-      hero.set_speed(hero.speed + 1)
+      h = hero
+      speed = h.speed
+      h.set_y(h.y + speed + 1)
+      h.set_speed(speed + 1)
     end
 
     def debug
