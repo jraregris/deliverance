@@ -1,4 +1,6 @@
 module Deliverance
+
+  # The Hero class. This represents the player.
   class Hero
     def initialize
       @x, @y, @speed = 0,0,0
