@@ -3,8 +3,8 @@ Feature: Biking
     Given I start a game in debug-mode
     Then my relative position is 0,0
     When I pedal north
-    Then my relative position is 0,1
-    And I should have a speed of 0,1
+    Then my relative position is 1,0
+    And I should have a speed of 1,0
     When I pedal north
-    Then my relative position is 0,3
-    And I should have a speed of 0,2
+    Then my relative position is 3,0
+    And I should have a speed of 2,0

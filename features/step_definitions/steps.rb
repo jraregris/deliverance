@@ -22,9 +22,9 @@ Then /^I should have (\d+) points$/ do |points|
   @ui.points.should equal(points.to_i)
 end
 
-Then /^I should have a speed of (\d+),(\d+)$/ do |h,v|
-  @game.hero.speed.h.should == h.to_i
-  @game.hero.speed.v.should == v.to_i
+Then /^I should have a speed of (\d+),(\d+)$/ do |n,w|
+  @game.hero.speed.n.should == n.to_i
+  @game.hero.speed.w.should == w.to_i
 end
 
 Given /^I have started an empty game$/ do
@@ -33,15 +33,11 @@ Given /^I have started an empty game$/ do
 end
 
 When /^I pedal north$/ do
-  @ui.pedal_north
+  @ui.pedal(:north)
 end
 
-Then /^my relative position is (\d+),(\d+)$/ do |x,y|
-  cell = @origin
-
-
-  #@game.hero.x.should == x.to_i
-  #@game.hero.y.should == y.to_i
+Then /^my relative position is (\d+),(\d+)$/ do |n,w|
+  @game.origo.should be(@origin.traverse(n.to_i,w.to_i))
 end
 
 Then /^the map should be empty$/ do

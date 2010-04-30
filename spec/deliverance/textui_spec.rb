@@ -19,8 +19,8 @@ module Deliverance
         game = mock("game").as_null_object
         ui.set_game(game)
 
-        game.should_receive(:pedal_north)
-        ui.pedal_north
+        game.should_receive(:pedal).with(:north)
+        ui.pedal(:north)
       end
     end
 

@@ -37,10 +37,9 @@ module Deliverance
       it "should move the hero 1 square north" do
 
         game = Game.new(mock("ui").as_null_object)
+        game.hero = hero = mock("hero").as_null_object
+        
         origin = Cell.new
-        hero = mock("hero").as_null_object
-        game.hero = hero
-
 
         hero.should_receive(:cell).twice.and_return(origin)
         game.origo.should be(origin)
@@ -48,13 +47,9 @@ module Deliverance
         target = Cell.new
         origin.n = target
 
-
         hero.should_receive(:cell=).with(target)
         game.pedal(:north)
-      
-
-      end
-      
+      end      
     end
 
     context "setting game to debug-debug" do

@@ -3,10 +3,20 @@
 
 module Deliverance
   class Cell
-    attr_reader :n, :ne, :e, :se, :s, :sw, :w, :nw
+    def n
+      @n ||= Cell.new
+    end
+
+    def w
+      @w ||= Cell.new
+    end
     
-    def initialize
-      
+    def e
+      @e ||= Cell.new
+    end
+    
+    def s
+      @s ||= Cell.new
     end
 
     def n=(cell)
@@ -18,6 +28,32 @@ module Deliverance
       @s = cell
       cell.n = self unless cell.n == self
     end
-    
+
+    def w=(cell)
+      @w = cell
+      cell.e = self unless cell.e == self
+    end
+
+    def e=(cell)
+      @e = cell
+      cell.w = self unless cell.w == self
+    end
+
+    def traverse(n,w)
+      cell = self
+      if n > 0
+        n.times{
+          cell = cell.n
+        }
+      end
+      cell
+    end
+
+    def inertia(speed)
+      cell = self
+      speed.n.times{ cell = cell.n }
+      speed.w.times{ cell = cell.w }
+      cell 
+    end
   end
 end

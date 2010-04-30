@@ -14,5 +14,15 @@ module Deliverance
         @hero.speed.should be_a_kind_of(Speed)
       end
     end
+
+    context "being told to set it's cell" do
+      it "should set it's cell to that cell" do
+        oldcell = @hero.cell
+        newcell = Cell.new
+        @hero.cell = newcell
+        @hero.cell.should be(newcell)
+        @hero.cell.should_not be(oldcell)
+      end
+    end
   end
 end

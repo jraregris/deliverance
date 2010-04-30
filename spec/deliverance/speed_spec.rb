@@ -9,8 +9,7 @@ module Deliverance
       @s.n.should be(0)
     end
   end
-
-
+  
   context "being told to accelerate north" do
     it "should have w:0 and n:1" do
       @s = Speed.new

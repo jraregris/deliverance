@@ -19,5 +19,9 @@ module Deliverance
     def cell
       @cell ||= Cell.new
     end
+
+    def cell=(new_cell)
+      @cell = new_cell
+    end
   end
 end

@@ -30,11 +30,14 @@ module Deliverance
 
     def pedal(*dirs)
       c = origo
+      c = c.inertia(hero.speed)
+
       c = c.n if dirs.include? :north
       c = c.w if dirs.include? :west
       c = c.e if dirs.include? :east
       c = c.s if dirs.include? :south
       hero.cell = c
+      hero.speed.accelerate(*dirs)
     end
 
     def debug

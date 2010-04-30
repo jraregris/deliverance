@@ -34,8 +34,8 @@ module Deliverance
       @game
     end
 
-    def pedal_north
-      @game.pedal_north
+    def pedal(*dirs)
+      @game.pedal(*dirs)
     end
   end
 end
