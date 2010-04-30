@@ -4,7 +4,7 @@ Feature: Biking
     Then my relative position is 0,0
     When I pedal north
     Then my relative position is 0,1
-    And I should have a speed of 1 spt
+    And I should have a speed of 0,1
     When I pedal north
     Then my relative position is 0,3
-    And I should have a speed of 2 spt
+    And I should have a speed of 0,2

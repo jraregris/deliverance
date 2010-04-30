@@ -35,21 +35,24 @@ module Deliverance
 
     context "being told to pedal north" do
       it "should move the hero 1 square north" do
+
         game = Game.new(mock("ui").as_null_object)
-        game.start
-        
-        game.hero.y.should == 0
-        game.hero.speed.should == 0
+        origin = Cell.new
+        hero = mock("hero").as_null_object
+        game.hero = hero
 
-        game.pedal_north
+
+        hero.should_receive(:cell).twice.and_return(origin)
+        game.origo.should be(origin)
+
+        target = Cell.new
+        origin.n = target
+
+
+        hero.should_receive(:cell=).with(target)
+        game.pedal(:north)
       
-        game.hero.y.should == 1
-        game.hero.speed.should == 1
 
-        game.pedal_north
-
-        game.hero.y.should == 3
-        game.hero.speed.should == 2
       end
       
     end
@@ -66,6 +69,21 @@ module Deliverance
         game = Game.new(ui)
         game.debug
         game.empty?.should be(true)
+      end
+    end
+
+    context "getting asked for origo" do
+      it "should return the cell of hero" do
+        ui = mock("ui").as_null_object
+        hero = mock("hero").as_null_object
+        
+        game = Game.new(ui)
+        game.hero = hero
+        c = Cell.new
+        hero.should_receive(:cell).twice.and_return(c)
+        origo = game.origo
+        origo.should be_a(Cell)
+        origo.should be(game.hero.cell)
       end
     end
   end

@@ -6,6 +6,7 @@ Given /^I start a game in debug-mode$/ do
   @game = Deliverance::Game.new(@ui)
   @game.debug
   @game.start
+  @origin = @game.origo
 end
 
 When /^I start a new game$/ do
@@ -21,8 +22,9 @@ Then /^I should have (\d+) points$/ do |points|
   @ui.points.should equal(points.to_i)
 end
 
-Then /^I should have a speed of (\d+) spt$/ do |speed|
-  @game.hero.speed.should == speed.to_i
+Then /^I should have a speed of (\d+),(\d+)$/ do |h,v|
+  @game.hero.speed.h.should == h.to_i
+  @game.hero.speed.v.should == v.to_i
 end
 
 Given /^I have started an empty game$/ do
@@ -35,8 +37,11 @@ When /^I pedal north$/ do
 end
 
 Then /^my relative position is (\d+),(\d+)$/ do |x,y|
-  @game.hero.x.should == x.to_i
-  @game.hero.y.should == y.to_i
+  cell = @origin
+
+
+  #@game.hero.x.should == x.to_i
+  #@game.hero.y.should == y.to_i
 end
 
 Then /^the map should be empty$/ do

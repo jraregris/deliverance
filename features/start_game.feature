@@ -4,4 +4,4 @@ Feature: Start game
     When I start a new game
     Then I should have 10 papers
     And I should have 0 points
-    And I should have a speed of 0 spt
+    And I should have a speed of 0,0

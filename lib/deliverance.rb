@@ -20,15 +20,21 @@ module Deliverance
       @hero ||= Hero.new
     end
 
+    def hero=(h)
+      @hero = h
+    end
+
     def start
       @ui.set_papers(10)
     end
 
-    def pedal_north
-      h = hero
-      speed = h.speed
-      h.set_y(h.y + speed + 1)
-      h.set_speed(speed + 1)
+    def pedal(*dirs)
+      c = origo
+      c = c.n if dirs.include? :north
+      c = c.w if dirs.include? :west
+      c = c.e if dirs.include? :east
+      c = c.s if dirs.include? :south
+      hero.cell = c
     end
 
     def debug
@@ -36,5 +42,8 @@ module Deliverance
       @empty = true
     end
 
+    def origo
+      hero.cell
+    end
   end
 end
