@@ -18,7 +18,7 @@ module Deliverance
     def s
       @s ||= Cell.new
     end
-
+    
     def n=(cell)
       @n = cell
       cell.s = self unless cell.s == self
@@ -28,10 +28,10 @@ module Deliverance
       @s = cell
       cell.n = self unless cell.n == self
     end
-
+    
     def w=(cell)
       @w = cell
-      cell.e = self unless cell.e == self
+     cell.e = self unless cell.e == self
     end
 
     def e=(cell)
@@ -42,9 +42,7 @@ module Deliverance
     def traverse(n,w)
       cell = self
       if n > 0
-        n.times{
-          cell = cell.n
-        }
+        n.times{ cell = cell.n }
       end
       cell
     end
@@ -53,7 +51,7 @@ module Deliverance
       cell = self
       speed.n.times{ cell = cell.n }
       speed.w.times{ cell = cell.w }
-      cell 
+      cell
     end
   end
 end

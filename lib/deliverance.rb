@@ -36,6 +36,7 @@ module Deliverance
       c = c.w if dirs.include? :west
       c = c.e if dirs.include? :east
       c = c.s if dirs.include? :south
+      
       hero.cell = c
       hero.speed.accelerate(*dirs)
     end

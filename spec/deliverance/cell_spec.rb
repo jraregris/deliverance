@@ -22,7 +22,7 @@ module Deliverance
         start.n.n.should be(target)
         start.n.n.s.s.should be(start)
       end
-
+      
       context "traverse(1,0)" do
         it "should return the cell to the north" do
           target = Cell.new
